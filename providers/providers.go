@@ -3,6 +3,7 @@ package providers
 import (
 	// Import providers for side-effect initialization
 	_ "github.com/Chrisz236/go-llm/providers/anthropic"
+	_ "github.com/Chrisz236/go-llm/providers/google"
 	_ "github.com/Chrisz236/go-llm/providers/openai"
 	// Add more providers as they are implemented
 )
