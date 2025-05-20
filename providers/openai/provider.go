@@ -41,14 +41,41 @@ func NewProviderWithKey(apiKey string) *Provider {
 			Timeout: defaultTimeout,
 		},
 		modelList: []string{
-			"gpt-3.5-turbo",
-			"gpt-3.5-turbo-16k",
-			"gpt-3.5-turbo-0301",
-			"gpt-3.5-turbo-0613",
-			"gpt-3.5-turbo-1106",
-			"gpt-3.5-turbo-0125",
-			"gpt-3.5-turbo-16k-0613",
 			"gpt-4",
+			"gpt-4.1",
+			"gpt-4.1-2025-04-14",
+			"gpt-4.1-mini",
+			"gpt-4.1-mini-2025-04-14",
+			"gpt-4.1-nano",
+			"gpt-4.1-nano-2025-04-14",
+			"gpt-4o",
+			"gpt-4o-search-preview-2025-03-11",
+			"gpt-4o-search-preview",
+			"gpt-4.5-preview",
+			"gpt-4.5-preview-2025-02-27",
+			"gpt-4o-mini",
+			"gpt-4o-mini-search-preview-2025-03-11",
+			"gpt-4o-mini-search-preview",
+			"gpt-4o-mini-2024-07-18",
+			"o1-pro",
+			"o1-pro-2025-03-19",
+			"o1",
+			"o1-mini",
+			"o3",
+			"o3-2025-04-16",
+			"o3-mini",
+			"o3-mini-2025-01-31",
+			"o4-mini",
+			"o4-mini-2025-04-16",
+			"o1-mini-2024-09-12",
+			"o1-preview",
+			"o1-preview-2024-09-12",
+			"o1-2024-12-17",
+			"chatgpt-4o-latest",
+			"gpt-4o-2024-05-13",
+			"gpt-4o-2024-08-06",
+			"gpt-4o-2024-11-20",
+			"gpt-4-turbo-preview",
 			"gpt-4-0314",
 			"gpt-4-0613",
 			"gpt-4-32k",
@@ -58,33 +85,13 @@ func NewProviderWithKey(apiKey string) *Provider {
 			"gpt-4-turbo-2024-04-09",
 			"gpt-4-1106-preview",
 			"gpt-4-0125-preview",
-			"gpt-4-vision-preview",
-			"gpt-4-1106-vision-preview",
-			"gpt-4o",
-			"gpt-4o-2024-05-13",
-			"gpt-4o-2024-08-06",
-			"gpt-4o-2024-11-20",
-			"gpt-4o-mini",
-			"gpt-4o-mini-2024-07-18",
-			"gpt-4o-mini-realtime-preview",
-			"gpt-4o-mini-realtime-preview-2024-12-17",
-			"gpt-4o-realtime-preview",
-			"gpt-4o-realtime-preview-2024-10-01",
-			"gpt-4o-realtime-preview-2024-12-17",
-			"gpt-4o-mini-tts",
-			"gpt-4o-transcribe",
-			"gpt-4o-mini-transcribe",
-			"o1",
-			"o1-mini",
-			"o1-mini-2024-09-12",
-			"o1-preview",
-			"o1-preview-2024-09-12",
-			"o1-2024-12-17",
-			"o3",
-			"o3-mini",
-			"o3-mini-2025-01-31",
-			"o4-mini",
-			"o4-mini-2025-04-16",
+			"gpt-3.5-turbo",
+			"gpt-3.5-turbo-0301",
+			"gpt-3.5-turbo-0613",
+			"gpt-3.5-turbo-1106",
+			"gpt-3.5-turbo-0125",
+			"gpt-3.5-turbo-16k",
+			"gpt-3.5-turbo-16k-0613",
 		},
 	}
 }
@@ -112,18 +119,19 @@ type openAIMessage struct {
 
 // openAIRequest represents an OpenAI chat completion request
 type openAIRequest struct {
-	Model            string          `json:"model"`
-	Messages         []openAIMessage `json:"messages"`
-	Temperature      *float64        `json:"temperature,omitempty"`
-	MaxTokens        *int            `json:"max_tokens,omitempty"`
-	TopP             *float64        `json:"top_p,omitempty"`
-	FrequencyPenalty *float64        `json:"frequency_penalty,omitempty"`
-	PresencePenalty  *float64        `json:"presence_penalty,omitempty"`
-	Stop             []string        `json:"stop,omitempty"`
-	Stream           bool            `json:"stream,omitempty"`
-	N                int             `json:"n,omitempty"`
-	LogitBias        map[string]int  `json:"logit_bias,omitempty"`
-	User             string          `json:"user,omitempty"`
+	Model               string          `json:"model"`
+	Messages            []openAIMessage `json:"messages"`
+	Temperature         *float64        `json:"temperature,omitempty"`
+	MaxTokens           *int            `json:"max_tokens,omitempty"`
+	MaxCompletionTokens *int            `json:"max_completion_tokens,omitempty"`
+	TopP                *float64        `json:"top_p,omitempty"`
+	FrequencyPenalty    *float64        `json:"frequency_penalty,omitempty"`
+	PresencePenalty     *float64        `json:"presence_penalty,omitempty"`
+	Stop                []string        `json:"stop,omitempty"`
+	Stream              bool            `json:"stream,omitempty"`
+	N                   int             `json:"n,omitempty"`
+	LogitBias           map[string]int  `json:"logit_bias,omitempty"`
+	User                string          `json:"user,omitempty"`
 }
 
 // openAIResponseChoice represents a choice in an OpenAI response
@@ -151,6 +159,25 @@ type openAIResponse struct {
 	SystemFingerprint string                 `json:"system_fingerprint,omitempty"`
 }
 
+// getModelMaxTokensParam returns the appropriate max tokens parameter name for the given model
+func getModelMaxTokensParam(model string) string {
+	// Models that use max_completion_tokens
+	completionTokenModels := map[string]bool{
+		"gpt-4o":      true,
+		"gpt-4o-mini": true,
+		"o1":          true,
+		"o1-mini":     true,
+		"o3":          true,
+		"o3-mini":     true,
+		"o4-mini":     true,
+	}
+
+	if completionTokenModels[model] {
+		return "max_completion_tokens"
+	}
+	return "max_tokens"
+}
+
 // Completion sends a completion request to the OpenAI API
 func (p *Provider) Completion(ctx context.Context, req *llm.CompletionRequest) (*llm.CompletionResponse, error) {
 	if p.apiKey == "" {
@@ -161,7 +188,6 @@ func (p *Provider) Completion(ctx context.Context, req *llm.CompletionRequest) (
 	openAIReq := openAIRequest{
 		Model:            req.Model,
 		Temperature:      req.Temperature,
-		MaxTokens:        req.MaxTokens,
 		TopP:             req.TopP,
 		FrequencyPenalty: req.FrequencyPenalty,
 		PresencePenalty:  req.PresencePenalty,
@@ -172,6 +198,16 @@ func (p *Provider) Completion(ctx context.Context, req *llm.CompletionRequest) (
 		N:                1, // Default to 1 completion
 	}
 
+	// Set the appropriate max tokens parameter based on model type
+	maxTokensParam := getModelMaxTokensParam(req.Model)
+	if maxTokensParam == "max_completion_tokens" {
+		if req.MaxTokens != nil {
+			openAIReq.MaxCompletionTokens = req.MaxTokens
+		}
+	} else {
+		openAIReq.MaxTokens = req.MaxTokens
+	}
+
 	// Convert messages
 	openAIReq.Messages = make([]openAIMessage, len(req.Messages))
 	for i, msg := range req.Messages {
@@ -179,14 +215,6 @@ func (p *Provider) Completion(ctx context.Context, req *llm.CompletionRequest) (
 			Role:    msg.Role,
 			Content: msg.Content,
 		}
-	}
-
-	// Apply extra parameters if provided
-	if req.ExtraParams != nil {
-		if n, ok := req.ExtraParams["n"].(int); ok {
-			openAIReq.N = n
-		}
-		// Add other OpenAI-specific parameters as needed
 	}
 
 	// Convert request to JSON
@@ -434,11 +462,10 @@ func (p *Provider) CompletionStream(ctx context.Context, req *llm.CompletionRequ
 		return nil, fmt.Errorf("OpenAI API key not set")
 	}
 
-	// Convert llm.CompletionRequest to openAIRequest (same as Completion)
+	// Convert llm.CompletionRequest to openAIRequest
 	openAIReq := openAIRequest{
 		Model:            req.Model,
 		Temperature:      req.Temperature,
-		MaxTokens:        req.MaxTokens,
 		TopP:             req.TopP,
 		FrequencyPenalty: req.FrequencyPenalty,
 		PresencePenalty:  req.PresencePenalty,
@@ -449,6 +476,16 @@ func (p *Provider) CompletionStream(ctx context.Context, req *llm.CompletionRequ
 		N:                1, // Default to 1 completion
 	}
 
+	// Set the appropriate max tokens parameter based on model type
+	maxTokensParam := getModelMaxTokensParam(req.Model)
+	if maxTokensParam == "max_completion_tokens" {
+		if req.MaxTokens != nil {
+			openAIReq.MaxCompletionTokens = req.MaxTokens
+		}
+	} else {
+		openAIReq.MaxTokens = req.MaxTokens
+	}
+
 	// Convert messages
 	openAIReq.Messages = make([]openAIMessage, len(req.Messages))
 	for i, msg := range req.Messages {
@@ -456,14 +493,6 @@ func (p *Provider) CompletionStream(ctx context.Context, req *llm.CompletionRequ
 			Role:    msg.Role,
 			Content: msg.Content,
 		}
-	}
-
-	// Apply extra parameters if provided
-	if req.ExtraParams != nil {
-		if n, ok := req.ExtraParams["n"].(int); ok {
-			openAIReq.N = n
-		}
-		// Add other OpenAI-specific parameters as needed
 	}
 
 	// Convert request to JSON
