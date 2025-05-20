@@ -1,0 +1,254 @@
+[
+  {
+    "model_name": "gpt-4",
+    "date_accessed": "2025-05-20T11:07:48.322467-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4.1",
+    "date_accessed": "2025-05-20T11:07:48.649827-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4.1-2025-04-14",
+    "date_accessed": "2025-05-20T11:07:49.004804-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4.1-mini",
+    "date_accessed": "2025-05-20T11:07:49.454028-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4.1-mini-2025-04-14",
+    "date_accessed": "2025-05-20T11:07:50.547787-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4.1-nano",
+    "date_accessed": "2025-05-20T11:07:50.959603-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4.1-nano-2025-04-14",
+    "date_accessed": "2025-05-20T11:07:51.307909-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4o",
+    "date_accessed": "2025-05-20T11:07:51.659615-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4.5-preview",
+    "date_accessed": "2025-05-20T11:07:52.023102-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4.5-preview-2025-02-27",
+    "date_accessed": "2025-05-20T11:07:52.618818-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4o-mini",
+    "date_accessed": "2025-05-20T11:07:52.872439-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4o-mini-2024-07-18",
+    "date_accessed": "2025-05-20T11:07:53.551637-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "o1",
+    "date_accessed": "2025-05-20T11:07:55.799973-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello."
+  },
+  {
+    "model_name": "o1-mini",
+    "date_accessed": "2025-05-20T11:07:57.399136-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "o3-mini",
+    "date_accessed": "2025-05-20T11:07:59.507612-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "o3-mini-2025-01-31",
+    "date_accessed": "2025-05-20T11:08:01.895157-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "o4-mini",
+    "date_accessed": "2025-05-20T11:08:03.650019-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "o4-mini-2025-04-16",
+    "date_accessed": "2025-05-20T11:08:05.611159-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "o1-mini-2024-09-12",
+    "date_accessed": "2025-05-20T11:08:06.70817-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "o1-preview",
+    "date_accessed": "2025-05-20T11:08:12.535834-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "o1-preview-2024-09-12",
+    "date_accessed": "2025-05-20T11:08:17.451748-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "o1-2024-12-17",
+    "date_accessed": "2025-05-20T11:08:18.70548-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "chatgpt-4o-latest",
+    "date_accessed": "2025-05-20T11:08:18.961684-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4o-2024-05-13",
+    "date_accessed": "2025-05-20T11:08:19.315198-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4o-2024-08-06",
+    "date_accessed": "2025-05-20T11:08:19.627086-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Greetings!"
+  },
+  {
+    "model_name": "gpt-4o-2024-11-20",
+    "date_accessed": "2025-05-20T11:08:20.303448-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4-turbo-preview",
+    "date_accessed": "2025-05-20T11:08:20.760374-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4-0613",
+    "date_accessed": "2025-05-20T11:08:21.176067-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4-turbo",
+    "date_accessed": "2025-05-20T11:08:21.627867-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-4-turbo-2024-04-09",
+    "date_accessed": "2025-05-20T11:08:22.74702-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4-1106-preview",
+    "date_accessed": "2025-05-20T11:08:23.079057-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-4-0125-preview",
+    "date_accessed": "2025-05-20T11:08:23.626246-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-3.5-turbo",
+    "date_accessed": "2025-05-20T11:08:23.87259-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-3.5-turbo-1106",
+    "date_accessed": "2025-05-20T11:08:24.382499-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello!"
+  },
+  {
+    "model_name": "gpt-3.5-turbo-0125",
+    "date_accessed": "2025-05-20T11:08:24.62997-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  },
+  {
+    "model_name": "gpt-3.5-turbo-16k",
+    "date_accessed": "2025-05-20T11:08:24.996374-05:00",
+    "available": true,
+    "price_per_m": 0,
+    "response": "Hello"
+  }
+]

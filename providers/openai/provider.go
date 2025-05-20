@@ -49,20 +49,20 @@ func NewProviderWithKey(apiKey string) *Provider {
 			"gpt-4.1-nano",
 			"gpt-4.1-nano-2025-04-14",
 			"gpt-4o",
-			"gpt-4o-search-preview-2025-03-11",
-			"gpt-4o-search-preview",
+			// "gpt-4o-search-preview-2025-03-11", Model incompatible request argument supplied: n
+			// "gpt-4o-search-preview", Model incompatible request argument supplied: n
 			"gpt-4.5-preview",
 			"gpt-4.5-preview-2025-02-27",
 			"gpt-4o-mini",
-			"gpt-4o-mini-search-preview-2025-03-11",
-			"gpt-4o-mini-search-preview",
+			// "gpt-4o-mini-search-preview-2025-03-11", Model incompatible request argument supplied: n
+			// "gpt-4o-mini-search-preview", Model incompatible request argument supplied: n
 			"gpt-4o-mini-2024-07-18",
-			"o1-pro",
-			"o1-pro-2025-03-19",
+			// "o1-pro", This model is only supported in v1/responses and not in v1/chat/completions.
+			// "o1-pro-2025-03-19", This model is only supported in v1/responses and not in v1/chat/completions.
 			"o1",
 			"o1-mini",
-			"o3",
-			"o3-2025-04-16",
+			// "o3", Your organization must be verified to use the model `o3`. Please go to: https://platform.openai.com/settings/organization/general and click on Verify Organization. If you just verified, it can take up to 15 minutes for access to propagate.
+			// "o3-2025-04-16", Your organization must be verified to use the model `o3`. Please go to: https://platform.openai.com/settings/organization/general and click on Verify Organization. If you just verified, it can take up to 15 minutes for access to propagate.
 			"o3-mini",
 			"o3-mini-2025-01-31",
 			"o4-mini",
@@ -76,22 +76,22 @@ func NewProviderWithKey(apiKey string) *Provider {
 			"gpt-4o-2024-08-06",
 			"gpt-4o-2024-11-20",
 			"gpt-4-turbo-preview",
-			"gpt-4-0314",
+			// "gpt-4-0314", The model `gpt-4-0314` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations
 			"gpt-4-0613",
-			"gpt-4-32k",
-			"gpt-4-32k-0314",
-			"gpt-4-32k-0613",
+			// "gpt-4-32k", The model `gpt-4-32k` does not exist or you do not have access to it.
+			// "gpt-4-32k-0314", The model `gpt-4-32k-0314` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations
+			// "gpt-4-32k-0613", The model `gpt-4-32k-0613` does not exist or you do not have access to it.
 			"gpt-4-turbo",
 			"gpt-4-turbo-2024-04-09",
 			"gpt-4-1106-preview",
 			"gpt-4-0125-preview",
 			"gpt-3.5-turbo",
-			"gpt-3.5-turbo-0301",
-			"gpt-3.5-turbo-0613",
+			// "gpt-3.5-turbo-0301", The model `gpt-3.5-turbo-0301` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations
+			// "gpt-3.5-turbo-0613", The model `gpt-3.5-turbo-0613` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations
 			"gpt-3.5-turbo-1106",
 			"gpt-3.5-turbo-0125",
 			"gpt-3.5-turbo-16k",
-			"gpt-3.5-turbo-16k-0613",
+			// "gpt-3.5-turbo-16k-0613", The model `gpt-3.5-turbo-16k-0613` has been deprecated, learn more here: https://platform.openai.com/docs/deprecations
 		},
 	}
 }
@@ -163,13 +163,16 @@ type openAIResponse struct {
 func getModelMaxTokensParam(model string) string {
 	// Models that use max_completion_tokens
 	completionTokenModels := map[string]bool{
-		"gpt-4o":      true,
-		"gpt-4o-mini": true,
-		"o1":          true,
-		"o1-mini":     true,
-		"o3":          true,
-		"o3-mini":     true,
-		"o4-mini":     true,
+		"o1":                    true,
+		"o1-mini":               true,
+		"o3-mini":               true,
+		"o3-mini-2025-01-31":    true,
+		"o4-mini":               true,
+		"o4-mini-2025-04-16":    true,
+		"o1-mini-2024-09-12":    true,
+		"o1-preview":            true,
+		"o1-preview-2024-09-12": true,
+		"o1-2024-12-17":         true,
 	}
 
 	if completionTokenModels[model] {
