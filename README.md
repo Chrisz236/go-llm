@@ -85,6 +85,29 @@ Currently, Go-LLM supports:
 - Anthropic (Claude-3-Opus, Claude-3-Sonnet, Claude-3-Haiku, etc.)
 - Google Gemini (Gemini-1.5-Pro, Gemini-1.5-Flash, Gemini-2.0-Pro, Gemini-2.0-Flash)
 
+### OpenAI Models (Tested, ChatCompletion)
+
+| Model Name | Description | Notes |
+|------------|-------------|-------|
+| chatgpt-4o-latest | Same model used in ChatGPT | |
+| gpt-4 | GPT-4 base model | |
+| gpt-4.1 | GPT-4.1 base model | |
+| gpt-4.1-mini | GPT-4.1 mini variant | |
+| gpt-4.1-nano | GPT-4.1 nano variant | |
+| gpt-4o | GPT-4 optimized model | |
+| gpt-4.5-preview | GPT-4.5 preview | |
+| gpt-4o-mini | GPT-4o mini variant | |
+| o1 | O1 base model | Uses max_completion_tokens |
+| o1-mini | O1 mini variant | Uses max_completion_tokens |
+| o3-mini | O3 mini variant | Uses max_completion_tokens |
+| o4-mini | O4 mini variant | Uses max_completion_tokens |
+| gpt-4-turbo | GPT-4 Turbo | |
+| gpt-4-turbo-preview | GPT-4 Turbo preview | |
+| gpt-3.5-turbo | GPT-3.5 Turbo | |
+| gpt-3.5-turbo-16k | GPT-3.5 Turbo with 16k context | |
+
+Note: All models with date suffixes (e.g., -2024-04-16) are also supported. Models marked with "Uses max_completion_tokens" require the `max_completion_tokens` parameter instead of `max_tokens`.
+
 Feel free to reference the `providers` to add more providers.
 
 ## Configuration Options
